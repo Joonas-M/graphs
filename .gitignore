@@ -12,3 +12,7 @@ pom.xml.asc
 .idea/
 CHANGELOG.md
 graphs.iml
+dev-resources/
+target/
+figwheel_server.log
+resources/public/js/
