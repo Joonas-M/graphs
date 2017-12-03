@@ -1,5 +1,6 @@
-(ns cljc.graphs.core
-  (:require [clojure.string :as st]))
+(ns graphs.core
+  (:require [clojure.string :as st]
+            #?(:cljs [reagent.core :refer [atom] :as r])))
 
 (defn round-to-decimal
   [n decimals]
@@ -240,14 +241,14 @@
      :canvas-points-comp cp
      :options-comp (merge options {:x-tick-values x-tick-values
                                    :x-min x-min
-                                   :x-max x-max
+                                   :y-min y-min
                                    :x-max x-max
                                    :y-max y-max
                                    :x-ratio x-ratio
                                    :y-ratio y-ratio})}))
 
 (defmulti plot
-          (fn [{plot-type :plot-type}]
+          (fn [{plot-type :plot-type} _]
             (identity plot-type)))
 
 (defmethod plot :line-plot
